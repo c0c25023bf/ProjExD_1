@@ -24,13 +24,15 @@ def main():
             if event.type == pg.QUIT: return
 
         # 2.背景画像SurfaceをスクリーンSurfaceにblitし，表示させよ．
-        screen.blit(bg_img, [0, 0])
-        # 4
+        # 5.tmrを使って、背景画像を動かす。
+        x = -tmr
+        screen.blit(bg_img, [x, 0])
+        # 4　こうかとん描画
         screen.blit(kokaton_img,[300,200])
 
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
