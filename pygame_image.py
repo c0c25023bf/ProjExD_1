@@ -37,7 +37,7 @@ def main():
         if key_list[pg.K_LEFT]:
             kokaton_rct.move_ip((-1, 0))
         if key_list[pg.K_RIGHT]:
-            kokaton_rct.move_ip((+1, 0))
+            kokaton_rct.move_ip((+2, 0))
         
         # 2.背景画像SurfaceをスクリーンSurfaceにblitし，表示させよ．
         # 5.tmrを使って、背景画像を動かす/9.xを書き換える。割った余りを使う。
@@ -49,7 +49,7 @@ def main():
         screen.blit(bg_img, [-x + 3200, 0])
         # 4　こうかとん描画/10-5
         screen.blit(kokaton_img, kokaton_rct)
-
+        kokaton_rct.move_ip((-1,0))
         pg.display.update()
         tmr += 1
         clock.tick(200)
