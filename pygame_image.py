@@ -4,8 +4,7 @@ import pygame as pg
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-    #第1回練習問題　
-    # 2. 【ル】背景画像SurfaceをスクリーンSurfaceにblitし，表示させよ．
+#第1回練習問題　
 def main():
     pg.display.set_caption("はばたけ！こうかとん")
     screen = pg.display.set_mode((800, 600))
@@ -15,8 +14,9 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     tmr = 0
 
-
-
+    #3
+    kokaton_img = pg.image.load("fig/3.png")
+    kokaton_img = pg.transform.flip(kokaton_img,True,False)
 
    
     while True:
@@ -25,6 +25,9 @@ def main():
 
         # 2.背景画像SurfaceをスクリーンSurfaceにblitし，表示させよ．
         screen.blit(bg_img, [0, 0])
+        # 4
+        screen.blit(kokaton_img,[300,200])
+
         pg.display.update()
         tmr += 1        
         clock.tick(10)
