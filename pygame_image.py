@@ -24,20 +24,26 @@ def main():
     # 10-1/10-2
     kokaton_rct = kokaton_img.get_rect()
     kokaton_rct.center = 300, 200  # 初期値 横、縦
+
+    #演習問題2　カウンター
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
+
+        kx = -1
+        ky = 0
+
             # 10-3
         key_list = pg.key.get_pressed()
         if key_list[pg.K_UP]:
-            kokaton_rct.move_ip((0, -1))
+            ky -=1
         if key_list[pg.K_DOWN]:
-            kokaton_rct.move_ip((0, +1))
+            ky +=1
         if key_list[pg.K_LEFT]:
-            kokaton_rct.move_ip((-1, 0))
+            kx -=1
         if key_list[pg.K_RIGHT]:
-            kokaton_rct.move_ip((+2, 0))
+            kx +=2
         
         # 2.背景画像SurfaceをスクリーンSurfaceにblitし，表示させよ．
         # 5.tmrを使って、背景画像を動かす/9.xを書き換える。割った余りを使う。
@@ -49,7 +55,7 @@ def main():
         screen.blit(bg_img, [-x + 3200, 0])
         # 4　こうかとん描画/10-5
         screen.blit(kokaton_img, kokaton_rct)
-        kokaton_rct.move_ip((-1,0))
+        kokaton_rct.move_ip((kx,ky))
         pg.display.update()
         tmr += 1
         clock.tick(200)
